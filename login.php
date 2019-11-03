@@ -8,10 +8,10 @@
 	$password = $obj['password'];
 	
 	
-	if($obj['account']!=""){
+	
 		
-	$CheckAccountSQL = "SELECT * FROM staff where account='$account'";
-	$CheckSQL = "SELECT name FROM staff where account='$account' and password='$password'";
+	$CheckAccountSQL = "SELECT * FROM  staff_info where account='$account'";
+	$CheckSQL = "SELECT * FROM staff_info where account='$account' and password='$password'";
 	
 	$account_result = mysqli_fetch_array(mysqli_query($con,$CheckAccountSQL));
 	// Executing SQL Query.
@@ -27,10 +27,8 @@
 		else{		
 		echo json_encode('Wrong Account');				
 		}
-	}	
-	else{
-	 echo json_encode('Nothing in account');
-	}
+		
+
 
 
 ?>
