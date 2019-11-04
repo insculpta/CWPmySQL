@@ -29,6 +29,7 @@
 	
 	if (isset($output)){
 		print(json_encode($output,JSON_UNESCAPED_UNICODE));
+
 	}
 	else if (isset($account_result)){
 	   print(json_encode('Wrong Password'));
@@ -38,7 +39,6 @@
 	   print(json_encode('Wrong Account'));
 	}
 	
-
 	$link -> close();
 	
 

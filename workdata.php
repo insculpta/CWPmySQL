@@ -4,20 +4,22 @@
 	$json = file_get_contents('php://input'); 	
 	$obj = json_decode($json,true);
 
-	$account = $obj['account'];	
-	$password = $obj['password'];
-	
+	$name = $obj['name'];	
 	
 
 	$link -> set_charset("UTF8");
-	$result = mysqli_query($link,"SELECT * FROM staff where account='$account' and password='$password'");
+	$result = mysqli_query($link,"SELECT * FROM staff where name='$name'");
 		
 	
 	while ($res = mysqli_fetch_assoc($result))
 	{
 		$output[] = $res;
 	}
-	print(json_encode($output,JSON_UNESCAPED_UNICODE));
+//	print(json_encode($output,JSON_UNESCAPED_UNICODE));
+		if (isset($output)){
+		print(json_encode($output,JSON_UNESCAPED_UNICODE));
+
+	}
 	$link -> close();	
 
 	
