@@ -3,6 +3,13 @@ $link = mysqli_connect("192.168.1.170","newuser","123","data");
 $json = file_get_contents('php://input'); 	
 $obj = json_decode($json,true);
 
+$EmployeeID = $obj['EmployeeID'];
+$LeaveID = $obj['LeaveID'];		
+$StartDate = $obj['StartDate'];
+$EndDate = $obj['EndDate'];
+$ApplicationDate = $obj['ApplicationDate'];
+$Remark = $obj['Remark'];
+$Approve = $obj['Approve'];
 
 if (mysqli_connect_errno($link)) {
       echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -10,16 +17,8 @@ if (mysqli_connect_errno($link)) {
 }
 
 
-$EmployeeID = $obj['EmployeeID'];
-$LeaveID = $obj['LeaveID'];		
-$StartDate = $obj['StartDate'];
-$EndDate = $obj['EndDate'];
-$ApplicationDate = $obj['ApplicationDate'];
-$Remark = $obj['Remark'];
-$Audited = $obj['Audited'];
-
 $link -> set_charset("UTF8");
-$sql = "insert into absentNote (EmployeeID,LeaveID,StartDate,EndDate,ApplicationDate,Remark,Audited) values ('$EmployeeID','$LeaveID','$StartDate','$EndDate','$ApplicationDate','$Remark','$Audited');";
+$sql = "insert into absentNote (EmployeeID,LeaveID,StartDate,EndDate,ApplicationDate,Remark,Approve) values ('$EmployeeID','$LeaveID','$StartDate','$EndDate','$ApplicationDate','$Remark','$Approve');";
 
 
 $result = mysqli_query($link,$sql);
