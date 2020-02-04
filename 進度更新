@@ -1,0 +1,112 @@
+目前還缺的功能：
+
+差假申請頁：
+1.申請後重新整理
+2.頂部資料顯示
+3.頁面修整 
+
+export default class Connection extends Component
+
+
+
+
+workdataDisplay2
+		  <View style={{flexDirection: 'row',}}>
+		  <Text style={{ flex:1, fontSize: 16,  color:'#435366' ,margin:10, textAlign:'right' }}>{(jsonData.EmployeeID)}</Text>
+		  <Text style={{ flex:1, fontSize: 16,  color:'#435366' ,margin:10, textAlign:'left' }}>{(jsonData.ApplicationDate).substring(0,5)}</Text>
+		  <Text style={{ flex:1, fontSize: 16,  color:'#435366' ,margin:10, textAlign:'left' }}>{(jsonData.StartDate)}</Text>
+		  <Text style={{ flex:1, fontSize: 16,  color:'#435366' ,margin:10, textAlign:'left' }}>{(jsonData.EndDate)}</Text>
+		  <Text style={{ flex:1, fontSize: 16,  color:'#435366' ,margin:10, textAlign:'left'}}>{jsonData.LeaveID}</Text>
+		  <Text style={{ flex:1, fontSize: 16,  color:'#435366' ,margin:10, textAlign:'left'}}>{jsonData.Remark}</Text>
+		  </View>
+		  
+		  
+		  
+		  
+		  
+		<View   style={{flexDirection: 'row',height:imageHeight , width: imageWidth*0.9,borderWidths: 5, bordeColor: 'blue', borderRadius: 5}}>
+		<Card>
+            <CardItem>
+              <Left>
+                <Body>
+               
+				  <Text style={{ flex:1, fontSize: 16,  color:'#435366' ,margin:10, textAlign:'left'}}>{jsonData.EmployeeID}</Text>
+                 
+                </Body>
+              </Left>
+            </CardItem>
+			
+            <CardItem cardBody style={{flexDirection: 'row', flex:1}}>
+			<Text>NativeBase</Text>
+             
+            </CardItem>
+			
+			<CardItem>
+              <Left>
+                <Button transparent onPress={() => alert("it works dude")} >
+                  <Icon active name="thumbs-up" />
+                  <Text>12 Likes</Text>
+                </Button>
+              </Left>
+              <Body>
+                <Button transparent>
+                  <Icon active name="chatbubbles" />
+                  <Text>4 Comments</Text>
+                </Button>
+              </Body>
+              <Right>
+                <Text>11h ago</Text>
+              </Right>
+            </CardItem>
+          </Card> 
+		  </View>
+		  
+		  
+		  
+		  					//EmployeeID: this.state.employee ,
+					//AbsentNoteID: this.state.absentNoteID,
+					//Audited: this.state.audited,
+					//Approve: this.state.approve,
+					
+					
+					
+					
+		//班表查詢的輸入資料顯示功能		
+					
+		<Text>{this.state.start}</Text>
+		<Text>{this.state.end}</Text>
+		<Text>{this.state.leavetype}</Text>
+		<Text>{this.state.remark}</Text>
+		<Text>{this.state.applytime}</Text>
+		
+		
+		
+		$ cd android && gradlew assembleRelease
+		
+		cd android && gradlew assembleRelease
+		
+		
+		測試的員工帳號：s100, 密碼：100
+		班表查詢：1/22-1/29 有資料
+		差假申請核准：1/22-1/29有資料
+		差假申請頁面若點擊送出資料後跳出請稍待再送出，則再按送出一次即可，不須重新輸入資料。
+	
+		尚未完成的功能：
+		1. 郵局自己的登入系統(包含有審核權限的員工以及一般員工在審核頁面的切換)
+		2. 差假申請頁面資料送出後的曾填寫的資料清除顯示
+		3. 差假核准頁面上方的月曆(目前改成手動輸入期間查詢)
+		4. 目前差假核准資料在一段期間內顯示順序依照申請順序排序，非按日期排序
+		5. 差假核准修改審核狀態的功能
+		6. 公告內容顯示
+		
+		
+		已完成的功能：
+		1. 登入(使用自建的人員資料表)
+		2. 公告與通知頁上方顯示近五日內工作項目與時間(左右滑動檢視)
+		3. 班表查詢功能
+		4. 差假申請功能
+		5. 差假審核系統按日期查詢申請之差假
+		
+		
+		
+		
