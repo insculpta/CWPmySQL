@@ -1,5 +1,6 @@
 <?php
-$link = mysqli_connect("192.168.1.170","newuser","123","data");
+//$link = mysqli_connect("192.168.1.170","newuser","123","data");
+$link = mysqli_connect("140.114.54.22","newuser","123","data");
 $json = file_get_contents('php://input'); 	
 $obj = json_decode($json,true);
 
@@ -9,6 +10,7 @@ $StartDate = $obj['StartDate'];
 $EndDate = $obj['EndDate'];
 $ApplicationDate = $obj['ApplicationDate'];
 $Remark = $obj['Remark'];
+$Audited = $obj['Audited'];
 $Approve = $obj['Approve'];
 
 if (mysqli_connect_errno($link)) {
@@ -18,7 +20,7 @@ if (mysqli_connect_errno($link)) {
 
 
 $link -> set_charset("UTF8");
-$sql = "insert into absentNote (EmployeeID,LeaveID,StartDate,EndDate,ApplicationDate,Remark,Approve) values ('$EmployeeID','$LeaveID','$StartDate','$EndDate','$ApplicationDate','$Remark','$Approve');";
+$sql = "insert into absentNote (EmployeeID,LeaveID,StartDate,EndDate,ApplicationDate,Remark,Audited,Approve) values ('$EmployeeID','$LeaveID','$StartDate','$EndDate','$ApplicationDate','$Remark','$Audited','$Approve');";
 
 
 $result = mysqli_query($link,$sql);

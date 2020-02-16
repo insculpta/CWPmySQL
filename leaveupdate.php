@@ -8,10 +8,9 @@ $link = mysqli_connect("192.168.1.170","newuser","123","data");
  // decoding the received JSON and store into $obj variable.
  $obj = json_decode($json,true);
 
-$AbsentNoteID = $obj['AbsentNoteID'];	
+
 $EmployeeID = $obj['EmployeeID'];	
-$Audited = $obj['Audited'];
-$Approve = $obj['Approve'];
+
 
 if (mysqli_connect_errno($link)) {
       echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -21,12 +20,12 @@ if (mysqli_connect_errno($link)) {
 
 
 //Checking Email is already exist or not using SQL query.
-$CheckSQL = "SELECT * FROM absentNote WHERE AbsentNoteID='69'  "; 
+$CheckSQL = "SELECT * FROM absentNote WHERE AbsentNoteID='68'  "; 
 // Executing SQL Query.
 $check = mysqli_fetch_array(mysqli_query($link,$CheckSQL));
 
 $link -> set_charset("UTF8"); 
-$sql = "UPDATE absentNote SET Audited = '$Audited', Approve = '$Approve' where AbsentNoteID = '69';"; 
+$sql = "UPDATE absentNote SET Audited = '1', Approve = '1' where AbsentNoteID = '68';"; 
 
 if($Audited = null ){
 	print(json_encode('get audit'));	
