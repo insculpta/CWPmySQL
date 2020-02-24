@@ -1,12 +1,12 @@
 <?php 
 
-	//$link = mysqli_connect("140.114.55.208","newuser","Tt12345678","postui");
-	$link = mysqli_connect("140.114.54.22","newuser","123","data");
+	$link = mysqli_connect("140.114.55.208","newuser","Tt12345678","postui");
+	//$link = mysqli_connect("140.114.54.22","newuser","123","data");
 	//$link = mysqli_connect("192.168.1.170","newuser","123","data");
 	$json = file_get_contents('php://input'); 	
 	$obj = json_decode($json,true);
 
-	$EmployeeID = $obj['EmployeeID'];	
+	$OfficeID = $obj['OfficeID'];	
 	
 	if (mysqli_connect_errno($link)) {
       echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -16,7 +16,7 @@
 
 
 	$link -> set_charset("UTF8");
-	$result = mysqli_query($link,"SELECT * FROM News ");
+	$result = mysqli_query($link,"SELECT * FROM News where OfficeID = '$OfficeID' ");
 		
 	
 	while ($res = mysqli_fetch_assoc($result))
