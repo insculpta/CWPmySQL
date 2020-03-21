@@ -1,8 +1,8 @@
 <?php
 
-//$link = mysqli_connect("140.114.55.208","newuser","Tt12345678","postui");
+$link = mysqli_connect("140.114.55.208","newuser","Tt12345678","postui");
 //$link = mysqli_connect("192.168.1.170","newuser","123","data");
-$link = mysqli_connect("140.114.54.22","newuser","123","data");
+//$link = mysqli_connect("140.114.54.22","newuser","123","data");
 $json = file_get_contents('php://input'); 	
 $obj = json_decode($json,true);
 
@@ -22,7 +22,7 @@ if (mysqli_connect_errno($link)) {
 
 
 $link -> set_charset("UTF8");
-$sql = "insert into absentNote (AbsentNoteID,EmployeeID,LeaveID,StartDate,EndDate,ApplicationDate,Remark,Audited,Approve) values ('218','$EmployeeID','$LeaveID','$StartDate','$EndDate','$ApplicationDate','$Remark','$Audited','$Approve');";
+$sql = "insert into absentNote (EmployeeID,LeaveID,StartDate,EndDate,ApplicationDate,Remark,Audited,Approve) values ('$EmployeeID','$LeaveID','$StartDate','$EndDate','$ApplicationDate','$Remark','$Audited','$Approve');";
 
 
 $result = mysqli_query($link,$sql);
@@ -53,6 +53,9 @@ if(mysqli_query($link, $sql)){
  print(json_encode('apply successfully'));
 }
 else{
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
  print(json_encode('try again'));
 }
 mysqli_close($link); 
