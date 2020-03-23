@@ -16,9 +16,12 @@
 		$output[] = $res;
 	}
 //	print(json_encode($output,JSON_UNESCAPED_UNICODE));
-		if (isset($output)){
+	if (isset($output)){
 		print(json_encode($output,JSON_UNESCAPED_UNICODE));
 
+	}
+	else{		
+	print(json_encode('Nothing'));	
 	}
 	$link -> close();	
 

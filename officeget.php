@@ -28,6 +28,9 @@
 		print(json_encode($output,JSON_UNESCAPED_UNICODE));
 
 	}
+	else{		
+	print(json_encode('Nothing'));	
+	}
 	$link -> close();	
 
 	
