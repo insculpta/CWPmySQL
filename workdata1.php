@@ -1,5 +1,5 @@
 <?php 
-
+	//$link = mysqli_connect("140.114.55.208","postui","post123456","DLGQAI01");
 	$link = mysqli_connect("140.114.55.208","newuser","Tt12345678","postui");
 	//$link = mysqli_connect("140.114.54.22","newuser","123","data");
 	//$link = mysqli_connect("192.168.1.170","newuser","123","data");
@@ -10,8 +10,12 @@
 	
 
 	$link -> set_charset("UTF8");
+	//$result = mysqli_query($link,"SELECT * FROM task ");
 	$result = mysqli_query($link,"SELECT * FROM task where task.EmployeeID='$EmployeeID'");
-		
+	
+	//phpinfo();
+  
+	//echo $obj -> EmployeeID;
 	
 	while ($res = mysqli_fetch_assoc($result))
 	{

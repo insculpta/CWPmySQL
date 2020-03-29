@@ -6,7 +6,7 @@
 	$json = file_get_contents('php://input'); 	
 	$obj = json_decode($json,true);
 
-	$EmployeeID = $obj['EmployeeID'];
+	
 	$OfficeID = $obj['OfficeID'];		
 	
 	if (mysqli_connect_errno($link)) {

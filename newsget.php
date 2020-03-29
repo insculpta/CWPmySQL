@@ -15,6 +15,8 @@
 	  
 	  }
 
+	  //echo "123";	
+	//echo json_encode($OfficeID);	
 
 	$link -> set_charset("UTF8");
 	$result = mysqli_query($link,"SELECT * FROM News where OfficeID = '$OfficeID' ");
@@ -24,13 +26,16 @@
 	{
 		$output[] = $res;
 	}
+	
+	
 //	print(json_encode($output,JSON_UNESCAPED_UNICODE));
 		if (isset($output)){
 		print(json_encode($output,JSON_UNESCAPED_UNICODE));
 
 	}
 		else{		
-	print(json_encode('Nothing'));	
+	print(json_encode('Nothing'));
+	
 	}
 	
 	$link -> close();	

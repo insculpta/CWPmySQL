@@ -13,13 +13,15 @@
 	$link -> close();
 	//"SELECT task.OfficeID, Office.OfficeName, task.EmployeeID, task.TaskCode  FROM task INNER JOIN Office ON task.OfficeID = Office.OfficeID" */
 	
+	//$link = mysqli_connect("140.114.55.208","postui","post123456","DLGQAI01");
 	$link = mysqli_connect("140.114.55.208","newuser","Tt12345678","postui");
 	//$link = mysqli_connect("140.114.54.22","newuser","123","data");
 	//$link = mysqli_connect("192.168.1.170","newuser","123","data");
 	$json = file_get_contents('php://input'); 	
 	$obj = json_decode($json,true);
 
-	$EmployeeID = $obj['EmployeeID'];	
+	$EmployeeID = $obj['EmployeeID'];
+	
 	
 	$link -> set_charset("UTF8");
 	$result = mysqli_query($link,"SELECT task.TaskID, task.OfficeID, Office.OfficeName, task.EmployeeID, task.Date, 
